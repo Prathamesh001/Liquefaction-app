@@ -7,24 +7,25 @@ from crr_dmt import run as run_crr_dmt
 from crr_vs import run as run_crr_vs
 from crr_clay import run as run_crr_clay
 
-# -----------------------
-# Page config (first)
-# -----------------------
+
+# ----------------------------
+# Config
+# ----------------------------
 st.set_page_config(
     page_title="Liquefaction Potential Analyser",
-    layout="wide"
+    layout="wide",
 )
 
-# -----------------------
-# App-owned state
-# -----------------------
+# ----------------------------
+# App state
+# ----------------------------
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-# -----------------------
-# Home page function
-# (buttons only update 'page', not 'nav')
-# -----------------------
+
+# ----------------------------
+# HOME PAGE (no sidebar here)
+# ----------------------------
 def home():
     st.title("Liquefaction Potential Assessment")
     st.caption("IS 1893 (2025) aligned • Mobile friendly")
@@ -34,96 +35,84 @@ def home():
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("CSR"):
+        if st.button("CSR", use_container_width=True):
             st.session_state.page = "CSR"
             st.rerun()
 
-        if st.button("CRR – CPT"):
+        if st.button("CRR – CPT", use_container_width=True):
             st.session_state.page = "CRR – CPT"
             st.rerun()
 
-        if st.button("CRR – SPT"):
+        if st.button("CRR – SPT", use_container_width=True):
             st.session_state.page = "CRR – SPT"
             st.rerun()
 
     with col2:
-        if st.button("CRR – DMT"):
+        if st.button("CRR – DMT", use_container_width=True):
             st.session_state.page = "CRR – DMT"
             st.rerun()
 
-        if st.button("CRR – Vs"):
+        if st.button("CRR – Vs", use_container_width=True):
             st.session_state.page = "CRR – Vs"
             st.rerun()
 
-        if st.button("CRR – Clay / Plastic silt"):
+        if st.button("CRR – Clay / Plastic silt", use_container_width=True):
             st.session_state.page = "CRR – Clay / Plastic silt"
             st.rerun()
 
-# -----------------------
-# Sidebar radio (widget-owned key = "nav")
-# We initialize the radio's selected index using st.session_state.page,
-# so the radio will not overwrite the app-owned page on reruns.
-# -----------------------
-st.sidebar.title("Liquefaction Toolkit")
 
-options = [
-    "Home",
-    "CSR",
-    "CRR – CPT",
-    "CRR – SPT",
-    "CRR – DMT",
-    "CRR – Vs",
-    "CRR – Clay / Plastic silt",
-]
+# ----------------------------
+# SIDEBAR (only for modules)
+# ----------------------------
+def module_sidebar():
+    st.sidebar.title("Liquefaction Toolkit")
 
-# Compute index safely based on current page
-try:
-    index_for_radio = options.index(st.session_state.page)
-except ValueError:
-    index_for_radio = 0
+    page = st.sidebar.radio(
+        "Switch analysis",
+        [
+            "CSR",
+            "CRR – CPT",
+            "CRR – SPT",
+            "CRR – DMT",
+            "CRR – Vs",
+            "CRR – Clay / Plastic silt",
+            "Home",
+        ],
+    )
 
-# radio owns key "nav"; do NOT write to st.session_state["nav"] anywhere
-st.sidebar.radio(
-    "Analysis type",
-    options,
-    index=index_for_radio,
-    key="nav",
-)
+    if page != st.session_state.page:
+        st.session_state.page = page
+        st.rerun()
 
-# -----------------------
-# Sync radio -> page (allowed: writing to page is fine)
-# If the user changed the radio, reflect that in the app-owned page.
-# -----------------------
-if "nav" in st.session_state and st.session_state.nav != st.session_state.page:
-    st.session_state.page = st.session_state.nav
 
-# -----------------------
-# Router: render the chosen module
-# -----------------------
+# ----------------------------
+# ROUTER
+# ----------------------------
 if st.session_state.page == "Home":
+    # Hide sidebar on Home (important for mobile clarity)
+    st.sidebar.empty()
     home()
 
 elif st.session_state.page == "CSR":
-    # optional: add a back-to-home button inside modules if you like
+    module_sidebar()
     run_csr()
 
 elif st.session_state.page == "CRR – CPT":
+    module_sidebar()
     run_crr_cpt()
 
 elif st.session_state.page == "CRR – SPT":
+    module_sidebar()
     run_crr_spt()
 
 elif st.session_state.page == "CRR – DMT":
+    module_sidebar()
     run_crr_dmt()
 
 elif st.session_state.page == "CRR – Vs":
+    module_sidebar()
     run_crr_vs()
 
 elif st.session_state.page == "CRR – Clay / Plastic silt":
+    module_sidebar()
     run_crr_clay()
-
-else:
-    # fallback
-    st.warning("Unknown page - returning to Home")
-    st.session_state.page = "Home"
-    st.experimental_rerun()
