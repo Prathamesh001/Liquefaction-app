@@ -7,7 +7,7 @@ def run():
         page_title="CRR-SPT Calculator",
         layout="wide"
     )
-    st.header("CRR — SPT method (iterative)")
+    st.header("CRR — SPT (iterative)")
 
     col1, col2 = st.columns(2)
     with col1:
