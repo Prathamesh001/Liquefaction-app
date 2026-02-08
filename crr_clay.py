@@ -12,15 +12,14 @@ def run():
     Final CRR = CRR_base * MSF * K_sigma (CRR_base capped at 1.0).
     """)
 
-    col1, col2 = st.columns(2)
+    col1 = st.columns(1)
     with col1:
+        st.write("Method-specific inputs below")
         method = st.selectbox("Method", ["CPT", "DMT", "OCR"])
         Pa = st.number_input("Atmospheric pressure Pa (kPa)", value=101.325, format="%.6f")
         MSF = st.number_input("MSF (magnitude scaling factor)", value=1.0, format="%.6f")
         K_sigma = st.number_input("K_sigma (overburden correction)", value=1.0, format="%.6f")
-
-    with col2:
-        st.write("Method-specific inputs below")
+        
 
     st.markdown("---")
 
@@ -61,7 +60,7 @@ def run():
         st.write(f"OCR = {OCR:.3f}")
 
     # Clamp CRR_base to <= 1.0
-    CRR_base = float(min(CRR_base, 1.0))
+    CRR_base = float(CRR_base)
     st.write(f"CRR_base (Mw=7.5, σ'v0=1 atm) = {CRR_base:.6f}")
 
     # final
@@ -71,4 +70,4 @@ def run():
     st.metric("Cyclic Resistance Ratio (CRR)", f"{CRR:.6e}")
 
     st.caption("Notes: - Qtn uses n* as chosen (1.0 typical for clay). "
-               "- Ensure units are consistent (kPa). - CRR_base is capped at 1.0.")
+               "- Ensure units are consistent (kPa).")
