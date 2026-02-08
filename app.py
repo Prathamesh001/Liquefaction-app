@@ -54,7 +54,7 @@ st.set_page_config(
 # ---------- SIDEBAR ----------
 st.sidebar.title("Liquefaction Toolkit")
 
-page = st.sidebar.radio(
+st.sidebar.radio(
     "Analysis type",
     [
         "Home",
@@ -65,10 +65,9 @@ page = st.sidebar.radio(
         "CRR – Vs",
         "CRR – Clay / Plastic silt",
     ],
-    index=0
+    key="page",   # 🔥 THIS IS THE FIX
 )
 
-st.session_state.page = page
 
 
 # ---------- ROUTER ----------
