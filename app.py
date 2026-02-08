@@ -71,17 +71,26 @@ def home():
 def module_sidebar():
     st.sidebar.title("Liquefaction Toolkit")
 
+    options = [
+        "CSR",
+        "CRR – CPT",
+        "CRR – SPT",
+        "CRR – DMT",
+        "CRR – Vs",
+        "CRR – Clay / Plastic silt",
+        "Home",
+    ]
+
+    # Set default index based on current page
+    try:
+        index = options.index(st.session_state.page)
+    except ValueError:
+        index = 0
+
     page = st.sidebar.radio(
         "Switch analysis",
-        [
-            "CSR",
-            "CRR – CPT",
-            "CRR – SPT",
-            "CRR – DMT",
-            "CRR – Vs",
-            "CRR – Clay / Plastic silt",
-            "Home",
-        ],
+        options,
+        index=index,
     )
 
     if page != st.session_state.page:
