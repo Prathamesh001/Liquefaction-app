@@ -5,6 +5,8 @@ from crr_cpt import run as run_crr_cpt
 from crr_spt import run as run_crr_spt
 from crr_dmt import run as run_crr_dmt
 from crr_vs  import run as run_crr_vs
+from crr_clay import run as run_crr_clay
+
 
 st.set_page_config(page_title="Liquefaction Analysis Toolkit", layout="wide")
 
@@ -31,3 +33,5 @@ elif choice == "CRR – DMT":
     run_crr_dmt()
 elif choice == "CRR – Vs":
     run_crr_vs()
+elif choice == "CRR – Clay / Plastic silt":
+    run_crr_clay()
