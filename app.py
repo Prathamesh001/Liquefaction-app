@@ -67,7 +67,7 @@ def home():
         st.divider()
 
         st.caption(
-            "Developed by Prathamesh Varma  ·  "
+            "Prathamesh Varma  ·  "
             "[LinkedIn](https://www.linkedin.com/in/prathameshvarma/)  ·  "
             "[Website](https://prathameshvarma.wordpress.com/)"
         )
