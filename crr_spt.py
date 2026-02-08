@@ -88,6 +88,8 @@ def run():
         st.warning(f"Did not converge within {iter_count} iterations; last m={m:.6f}")
 
     st.write(f"Final m = {m:.6f}")
+    st.write(f"CN = {CN:.4f}")
+    st.write(f"(N1)60 = {N1_60:.4f}")
     st.write(f"(N1)60cs = {N1_60cs:.4f}")
 
     # CRR base
