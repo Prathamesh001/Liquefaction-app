@@ -35,28 +35,32 @@ def home():
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("CSR", use_container_width=True):
+        if st.button("CSR", key="btn_csr", use_container_width=True):
             st.session_state.page = "CSR"
             st.rerun()
 
-        if st.button("CRR – CPT", use_container_width=True):
+        if st.button("CRR – CPT", key="btn_cpt", use_container_width=True):
             st.session_state.page = "CRR – CPT"
             st.rerun()
 
-        if st.button("CRR – SPT", use_container_width=True):
+        if st.button("CRR – SPT", key="btn_spt", use_container_width=True):
             st.session_state.page = "CRR – SPT"
             st.rerun()
 
     with col2:
-        if st.button("CRR – DMT", use_container_width=True):
+        if st.button("CRR – DMT", key="btn_dmt", use_container_width=True):
             st.session_state.page = "CRR – DMT"
             st.rerun()
 
-        if st.button("CRR – Vs", use_container_width=True):
+        if st.button("CRR – Vs", key="btn_vs", use_container_width=True):
             st.session_state.page = "CRR – Vs"
             st.rerun()
 
-        if st.button("CRR – Clay / Plastic silt", use_container_width=True):
+        if st.button(
+            "CRR – Clay / Plastic silt",
+            key="btn_clay",
+            use_container_width=True
+        ):
             st.session_state.page = "CRR – Clay / Plastic silt"
             st.rerun()
 
