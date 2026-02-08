@@ -7,32 +7,74 @@ from crr_dmt import run as run_crr_dmt
 from crr_vs  import run as run_crr_vs
 from crr_clay import run as run_crr_clay
 
+if "page" not in st.session_state:
+    st.session_state.page = "Home"
 
 st.set_page_config(page_title="Liquefaction Potential Analyser", layout="wide")
 
-st.sidebar.title("Analysis type")
+st.sidebar.title("Liquefaction Toolkit")
 
-choice = st.sidebar.radio(
-    "Select module",
+page = st.sidebar.radio(
+    "Analysis type",
     [
+        "Home",
         "CSR",
         "CRR – CPT",
         "CRR – SPT",
         "CRR – DMT",
         "CRR – Vs",
-        "CRR – Clay / Plastic silt"
-    ]
+        "CRR – Clay / Plastic silt",
+    ],
+    index=0
 )
 
-if choice == "CSR":
+st.session_state.page = page
+
+
+if st.session_state.page == "Home":
+    home()
+elif st.session_state.page == "CSR":
     run_csr()
-elif choice == "CRR – CPT":
+elif st.session_state.page == "CRR – CPT":
     run_crr_cpt()
-elif choice == "CRR – SPT":
+elif st.session_state.page == "CRR – SPT":
     run_crr_spt()
-elif choice == "CRR – DMT":
+elif st.session_state.page == "CRR – DMT":
     run_crr_dmt()
-elif choice == "CRR – Vs":
+elif st.session_state.page == "CRR – Vs":
     run_crr_vs()
-elif choice == "CRR – Clay / Plastic silt":
+elif st.session_state.page == "CRR – Clay / Plastic silt":
     run_crr_clay()
+
+
+
+def home():
+    st.title("Liquefaction Potential Assessment")
+    st.caption("IS 1893 (2025) aligned • Mobile friendly")
+
+    st.markdown("### Select analysis")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("CSR"):
+            st.session_state.page = "CSR"
+            st.rerun()
+        if st.button("CRR – CPT"):
+            st.session_state.page = "CRR – CPT"
+            st.rerun()
+        if st.button("CRR – SPT"):
+            st.session_state.page = "CRR – SPT"
+            st.rerun()
+
+    with col2:
+        if st.button("CRR – DMT"):
+            st.session_state.page = "CRR – DMT"
+            st.rerun()
+        if st.button("CRR – Vs"):
+            st.session_state.page = "CRR – Vs"
+            st.rerun()
+        if st.button("CRR – Clay / Plastic silt"):
+            st.session_state.page = "CRR – Clay / Plastic silt"
+            st.rerun()
+
