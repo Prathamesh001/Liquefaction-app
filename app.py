@@ -28,7 +28,7 @@ if "page" not in st.session_state:
 # ----------------------------
 def home():
     st.title("Liquefaction Potential Assessment")
-    st.caption("IS 1893 (2025) aligned • Mobile friendly")
+    st.caption("IS 1893 (2025) aligned")
 
     st.markdown("### Select analysis")
 
@@ -63,6 +63,15 @@ def home():
         ):
             st.session_state.page = "CRR – Clay / Plastic silt"
             st.rerun()
+
+        st.divider()
+
+        st.caption(
+            "Developed by Prathamesh Varma  ·  "
+            "[LinkedIn](https://www.linkedin.com/in/prathameshvarma/)  ·  "
+            "[Website](https://prathameshvarma.wordpress.com/)"
+        )
+
 
 
 # ----------------------------
