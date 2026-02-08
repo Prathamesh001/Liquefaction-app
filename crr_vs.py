@@ -13,6 +13,10 @@ import streamlit as st
 import numpy as np
 
 def run():
+    st.set_page_config(
+        page_title="CRR — Vs Calculator",
+        layout="wide"
+    )
     st.header("CRR — Vs method (shear wave velocity)")
 
     st.markdown("""

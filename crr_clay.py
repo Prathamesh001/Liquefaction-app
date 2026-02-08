@@ -3,6 +3,10 @@ import streamlit as st
 import numpy as np
 
 def run():
+    st.set_page_config(
+        page_title="CRR — clay & plastic silt",
+        layout="wide"
+    )
     st.header("CRR — clay & plastic silt")
     st.markdown("""
     Compute CRR for clay / plastic silt using one of:
@@ -14,11 +18,11 @@ def run():
 
     col1, = st.columns(1)
     with col1:
-        st.write("Method-specific inputs below")
         method = st.selectbox("Method", ["CPT", "DMT", "OCR"])
         Pa = st.number_input("Atmospheric pressure Pa (kPa)", value=101.325, format="%.6f")
         MSF = st.number_input("MSF (magnitude scaling factor)", value=1.0, format="%.6f")
         K_sigma = st.number_input("K_sigma (overburden correction)", value=1.0, format="%.6f")
+        st.write("Method-specific inputs below")
 
 
     st.markdown("---")

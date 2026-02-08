@@ -17,6 +17,11 @@ import streamlit as st
 import numpy as np
 
 def run():
+    st.set_page_config(
+        page_title="CRR — DMT Calculator",
+        layout="wide"
+    )
+
     st.header("CRR — DMT method")
 
     st.markdown("""

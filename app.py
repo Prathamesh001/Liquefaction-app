@@ -8,7 +8,7 @@ from crr_vs  import run as run_crr_vs
 from crr_clay import run as run_crr_clay
 
 
-st.set_page_config(page_title="Liquefaction Analysis Toolkit", layout="wide")
+st.set_page_config(page_title="Liquefaction Potential Analyser", layout="wide")
 
 st.sidebar.title("Analysis type")
 
