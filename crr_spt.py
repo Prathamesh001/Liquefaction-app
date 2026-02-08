@@ -3,6 +3,10 @@ import numpy as np
 from math import sqrt, log10
 
 def run():
+    st.set_page_config(
+        page_title="CRR-SPT Calculator",
+        layout="wide"
+    )
     st.header("CRR — SPT method (iterative)")
 
     col1, col2 = st.columns(2)
