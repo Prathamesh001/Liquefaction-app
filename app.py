@@ -19,7 +19,8 @@ choice = st.sidebar.radio(
         "CRR – CPT",
         "CRR – SPT",
         "CRR – DMT",
-        "CRR – Vs"
+        "CRR – Vs",
+        "CRR – CRR – Clay / Plastic silt"
     ]
 )
 
