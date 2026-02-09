@@ -94,7 +94,7 @@ def run():
         layout="wide"
     )
 
-    st.title("🌍 Cyclic Stress Ratio (CSR) Calculator")
+    st.title("Cyclic Stress Ratio (CSR) Calculator")
     st.markdown("**Simplified liquefaction analysis using IS 1893 Part 1**")
 
     # -------------------------------
