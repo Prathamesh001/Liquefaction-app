@@ -80,6 +80,12 @@ def home():
         st.caption(
             "Initial release (v0.1). Results should be independently verified before professional use."
         )
+        
+        st.caption(
+            "Technical feedback and corrections are invited - "
+            "[email](mailto:prathamesh66523@gmail.com)"
+        )
+
 
 
 
