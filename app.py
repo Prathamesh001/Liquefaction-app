@@ -63,6 +63,11 @@ def home():
         ):
             st.session_state.page = "CRR – Clay / Plastic silt"
             st.rerun()
+            
+        st.divider()
+        st.caption(
+            "Initial release (v0.1). Results should be independently verified before professional use."
+        )
 
         st.divider()
 
@@ -70,6 +75,10 @@ def home():
             "Prathamesh Varma  ·  "
             "[LinkedIn](https://www.linkedin.com/in/prathameshvarma/)  ·  "
             "[Website](https://prathameshvarma.wordpress.com/)"
+        )
+        st.caption(
+            "Prof. Mohan S C  ·  "
+            "[Web Link](https://www.bits-pilani.ac.in/hyderabad/mohan-sc/)"
         )
 
 
