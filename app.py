@@ -83,7 +83,7 @@ def home():
         
         st.caption(
             "Technical feedback and corrections are invited - "
-            "[email](mailto:prathamesh66523@gmail.com)"
+            "[prathamesh66523@gmail.com](mailto:prathamesh66523@gmail.com)"
         )
 
 
