@@ -64,10 +64,6 @@ def home():
             st.session_state.page = "CRR – Clay / Plastic silt"
             st.rerun()
             
-        st.divider()
-        st.caption(
-            "Initial release (v0.1). Results should be independently verified before professional use."
-        )
 
         st.divider()
 
@@ -79,6 +75,10 @@ def home():
         st.caption(
             "Prof. Mohan S C  ·  "
             "[Web Link](https://www.bits-pilani.ac.in/hyderabad/mohan-sc/)"
+        )
+        st.divider()
+        st.caption(
+            "Initial release (v0.1). Results should be independently verified before professional use."
         )
 
 
