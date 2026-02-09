@@ -119,6 +119,7 @@ def module_sidebar():
     st.sidebar.caption(
         "Initial release (v0.1). Educational and preliminary analysis only. "
         "Results should be independently verified before professional use."
+        )
 
 
 # ----------------------------
