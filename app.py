@@ -115,6 +115,11 @@ def module_sidebar():
         st.session_state.page = page
         st.rerun()
 
+    st.sidebar.divider()
+    st.sidebar.caption(
+        "Initial release (v0.1). Educational and preliminary analysis only. "
+        "Results should be independently verified before professional use."
+
 
 # ----------------------------
 # ROUTER
